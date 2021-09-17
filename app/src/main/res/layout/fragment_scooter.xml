@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvSelectedScooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Selected scooter" />
+
+    <LinearLayout
+        android:id="@+id/llScooters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/purple_200"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectedScooter"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/ivScooter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectedScooter"
+        tools:src="#f00" />
+
+    <View
+        android:id="@+id/vRangeBg"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_stat_background"
+        app:layout_constraintEnd_toStartOf="@id/vBatteryBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivScooter" />
+
+    <TextView
+        android:id="@+id/tvRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Range"
+        app:layout_constraintBottom_toBottomOf="@id/vRangeBg"
+        app:layout_constraintEnd_toEndOf="@id/vRangeBg"
+        app:layout_constraintStart_toStartOf="@id/vRangeBg" />
+
+    <TextView
+        android:id="@+id/tvRangeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tvRange"
+        app:layout_constraintEnd_toEndOf="@id/vRangeBg"
+        app:layout_constraintStart_toStartOf="@id/vRangeBg"
+        app:layout_constraintTop_toTopOf="@id/vRangeBg"
+        tools:text="40.3km" />
+
+    <View
+        android:id="@+id/vBatteryBg"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_stat_background"
+        app:layout_constraintEnd_toStartOf="@id/vTotalBg"
+        app:layout_constraintStart_toEndOf="@id/vRangeBg"
+        app:layout_constraintTop_toBottomOf="@id/ivScooter"
+        app:layout_constraintTop_toTopOf="@id/vRangeBg" />
+
+    <TextView
+        android:id="@+id/tvBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Battery"
+        app:layout_constraintBottom_toBottomOf="@id/vBatteryBg"
+        app:layout_constraintEnd_toEndOf="@id/vBatteryBg"
+        app:layout_constraintStart_toStartOf="@id/vBatteryBg" />
+
+    <TextView
+        android:id="@+id/tvBatteryValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tvBattery"
+        app:layout_constraintEnd_toEndOf="@id/vBatteryBg"
+        app:layout_constraintStart_toStartOf="@id/vBatteryBg"
+        app:layout_constraintTop_toTopOf="@id/vBatteryBg"
+        tools:text="50%" />
+
+    <View
+        android:id="@+id/vTotalBg"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_stat_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vBatteryBg"
+        app:layout_constraintTop_toBottomOf="@id/ivScooter"
+        app:layout_constraintTop_toTopOf="@id/vRangeBg" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Total"
+        app:layout_constraintBottom_toBottomOf="@id/vTotalBg"
+        app:layout_constraintEnd_toEndOf="@id/vTotalBg"
+        app:layout_constraintStart_toStartOf="@id/vTotalBg" />
+
+    <TextView
+        android:id="@+id/tvTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tvTotal"
+        app:layout_constraintEnd_toEndOf="@id/vTotalBg"
+        app:layout_constraintStart_toStartOf="@id/vTotalBg"
+        app:layout_constraintTop_toTopOf="@id/vTotalBg"
+        tools:text="104.3km" />
+
+    <ImageButton
+        android:id="@+id/vConnect"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_image_button_bg"
+        android:src="@drawable/ic_bluetooth"
+        app:layout_constraintBottom_toBottomOf="@id/ivScooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivScooter"
+        app:layout_constraintTop_toTopOf="@id/ivScooter" />
+
+    <ProgressBar
+        android:id="@+id/vConnectionProgress"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/vConnect"
+        app:layout_constraintStart_toStartOf="@id/vConnect"
+        app:layout_constraintTop_toBottomOf="@id/vConnect"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/vLocateScooter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="64dp"
+        android:background="@drawable/ic_image_button_bg"
+        android:padding="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_gps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Locate scooter"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/vLocateScooter"
+        app:layout_constraintStart_toStartOf="@id/vLocateScooter"
+        app:layout_constraintTop_toBottomOf="@id/vLocateScooter" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/loadingGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:constraint_referenced_ids="vLoadingBg,vLoading" />
+
+    <View
+        android:id="@+id/vLoadingBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" />
+
+    <ProgressBar
+        android:id="@+id/vLoading"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
