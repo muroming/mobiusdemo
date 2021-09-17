@@ -26,6 +26,7 @@ ext {
             material  : "androidx.compose.material:material:$compose_version",
             ui_tooling: "androidx.compose.ui:ui-tooling:$compose_version",
             liveData  : "androidx.compose.runtime:runtime-livedata:$compose_version",
-            viewModel : "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+            viewModel : "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07",
+            coil      : 'com.google.accompanist:accompanist-coil:0.15.0'
     ]
 }

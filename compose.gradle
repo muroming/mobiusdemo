@@ -22,4 +22,6 @@ dependencies {
     implementation compose.material
     implementation compose.ui_tooling
     implementation compose.liveData
+    implementation compose.viewModel
+    implementation compose.coil
 }

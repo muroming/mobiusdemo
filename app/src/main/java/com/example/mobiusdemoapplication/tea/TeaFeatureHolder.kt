@@ -22,7 +22,7 @@ abstract class TeaFeatureHolder<Msg : Any, State : Any, Effect : Any>(
         vararg handlers: Pair<KClass<out Effect>, TeaEffectHandler<Effect, Msg>>
     ) : this(initState, initEffects = emptySet(), *handlers)
 
-    fun init() {
+    init {
         viewModelScope.launch {
             executeEffects(initEffects)
         }
