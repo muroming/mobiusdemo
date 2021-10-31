@@ -5,10 +5,14 @@
       <map>
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/drawable/ic_gps.xml" value="0.308" />
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/drawable/ic_image_button_bg.xml" value="0.308" />
+        <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/drawable/ic_stat_background.xml" value="0.152" />
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/drawable/ic_update.xml" value="0.308" />
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/activity_main.xml" value="0.5401041666666667" />
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/fragment_gps_location.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/fragment_scooter.xml" value="0.18820224719101122" />
+        <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/fragment_todo_edit.xml" value="0.32708333333333334" />
+        <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/fragment_todo_list.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/79195/AndroidStudioProjects/MobiusDemoApplication/app/src/main/res/layout/item_todo.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>

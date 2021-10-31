@@ -10,4 +10,6 @@
     <color name="blue">#00F</color>
     <color name="red">#F00</color>
     <color name="gray">#555</color>
+    <color name="due_today">#EF5350</color>
+    <color name="due_tomorrow">#7E57C2</color>
 </resources>

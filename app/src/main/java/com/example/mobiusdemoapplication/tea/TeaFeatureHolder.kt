@@ -3,63 +3,48 @@ package com.example.mobiusdemoapplication.tea
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import kotlin.reflect.KClass
 
-abstract class TeaFeatureHolder<Msg, State : Any, Effect : Any>(
+abstract class TeaFeatureHolder<Msg : Any, State : Any, Effect : Any>(
     initState: State,
-    private val initStateProducer: (suspend () -> State)?,
-    private val initEffects: Set<Effect> = emptySet(),
-    private val effectHandler: TeaEffectHandler<Effect, Msg>
+    private val initEffects: Set<Effect>,
+    vararg handlers: Pair<KClass<out Effect>, TeaEffectHandler<Effect, Msg>>
 ) : ViewModel(), Feature<Msg, State, Effect> {
+
+    private var currentStateCompose by mutableStateOf(initState)
+    private val effectHandlers = handlers.toList()
 
     constructor(
         initState: State,
-        initEffects: Set<Effect> = emptySet(),
-        effectHandler: TeaEffectHandler<Effect, Msg>
-    ) : this(initState, initStateProducer = null, initEffects, effectHandler)
-
-    private val platformEvents: MutableLiveData<Set<Effect>> = SingleLiveEvent()
-    private var currentState by mutableStateOf(initState)
+        vararg handlers: Pair<KClass<out Effect>, TeaEffectHandler<Effect, Msg>>
+    ) : this(initState, initEffects = emptySet(), *handlers)
 
     fun init() {
         viewModelScope.launch {
-            initStateProducer?.invoke()?.let {
-                currentState = it
-            }
             executeEffects(initEffects)
         }
     }
 
-    override val state: State get() = currentState
-
-    override fun subscribe(lifecycleOwner: LifecycleOwner, stateConsumer: (State) -> Unit, effectsConsumer: (Effect) -> Unit) {
-        val effectsSetConsumer: (Set<Effect>) -> Unit = { it.forEach(effectsConsumer) }
-        platformEvents.observe(lifecycleOwner, Observer(effectsSetConsumer))
-    }
-
-    override fun subscribe(lifecycleOwner: LifecycleOwner, effectsConsumer: (Effect) -> Unit) {
-        val effectsSetConsumer: (Set<Effect>) -> Unit = { it.forEach(effectsConsumer) }
-        platformEvents.observe(lifecycleOwner, Observer(effectsSetConsumer))
-    }
-
-    override fun unsubscribe(lifecycleOwner: LifecycleOwner) {
-        platformEvents.removeObservers(lifecycleOwner)
-    }
+    override val state: State get() = currentStateCompose
 
     override fun accept(msg: Msg) {
-        val (newState, effects) = reduce(msg, currentState)
-        currentState = newState
+        val (newState, effects) = reduce(msg, currentStateCompose)
+        currentStateCompose = newState
 
         executeEffects(effects)
     }
 
     private fun executeEffects(effects: Set<Effect>) {
-        platformEvents.value = effects
-
         effects.forEach { eff ->
             viewModelScope.launch {
-                effectHandler.execute(eff, ::accept)
+                effectHandlers.forEach { (effectClass, handler) ->
+                    if (effectClass.isInstance(eff)) {
+                        handler.execute(eff, ::accept)
+                    }
+                }
             }
         }
     }

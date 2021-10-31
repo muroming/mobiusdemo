@@ -8,7 +8,7 @@ plugins {
 apply from: "${rootProject.projectDir}/compose.gradle"
 
 android {
-    compileSdk 31
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {

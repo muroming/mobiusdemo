@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:layout_marginBottom="8dp">
+
+    <CheckBox
+        android:id="@+id/rbIsDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/ivIcon"
+        android:layout_toEndOf="@id/rbIsDone"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        tools:text="Copy/Design feedback" />
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="8dp"
+        app:tint="@color/black"
+        tools:src="@drawable/ic_calendar" />
+
+    <ImageView
+        android:id="@+id/ivCalendar"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignStart="@id/tvTitle"
+        android:layout_alignTop="@id/tvDue"
+        android:layout_alignBottom="@id/tvDue"
+        android:src="@drawable/ic_calendar"
+        app:tint="@color/red" />
+
+
+    <TextView
+        android:id="@+id/tvDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@id/ivCalendar"
+        android:textColor="@color/red"
+        tools:text="Due today" />
+
+</RelativeLayout>
